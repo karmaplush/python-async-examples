@@ -33,3 +33,11 @@ High-level I/O API with same principle as `select` module https://docs.python.or
 Concrete implementation of default select mechanism depends on OS (`epoll` for UNIX by default)
 
 Example in repo do almost same things as `select` example, but we need to register descriptors via selector object `.register()` method and in event loop we will read registered events. After catching registered event, we will use function, passed to data keyword arg as our callback function for writing data into file.
+
+
+## 3. Async example based on generators (`generators_async.py`)
+This example based on `select` module and Python's generators, which allow you to transfer control flow to an external scope after calling `yield` and store the execution state inside the generator.
+
+This solution can be confusing, so inside the example there is a detailed description of the process, which should be read from `1. ...` to the end.
+
+Based on [David Beazley - Python Concurrency From the Ground Up: LIVE! - PyCon 2015](https://www.youtube.com/watch?v=MCs5OvhV9S4)
